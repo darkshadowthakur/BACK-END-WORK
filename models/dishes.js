@@ -15,8 +15,8 @@ var commentSchema = new Schema({
         required: true
     },
     author: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 }, {
     timestamps: true
@@ -29,10 +29,6 @@ const dishSchema = new Schema({
         unique: true
     },
     description: {
-        type: String,
-        required: true
-    },
-    image: {
         type: String,
         required: true
     },
