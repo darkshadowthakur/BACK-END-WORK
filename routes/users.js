@@ -6,7 +6,7 @@ router.use(bodyParser.json());
 var passport = require('passport');
 var authenticate = require('../authenticate');
 /* GET users listing. */
-router.get('/', authenticate.verifyAdmin, function (req, res, next) {
+router.get('/', authenticate.verifyUser, authenticate.verifyAdmin, function (req, res, next) {
   User.find({})
     .then((users) => {
       res.status = 200
